@@ -1,5 +1,5 @@
 {
-  "name": "@sparkpost/node-msys-pg",
+  "name": "@sparkpost/msys-pg",
   "version": "1.0.0",
   "description": "Thin wrapper around pg with promises and connection pooling",
   "main": "index.js",
