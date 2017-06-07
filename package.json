@@ -1,0 +1,33 @@
+{
+  "name": "@sparkpost/node-msys-pg",
+  "version": "1.0.0",
+  "description": "Thin wrapper around pg with promises and connection pooling",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SparkPost/node-msys-pg.git"
+  },
+  "author": "",
+  "license": "CLOSED",
+  "bugs": {
+    "url": "https://github.com/SparkPost/node-msys-pg/issues"
+  },
+  "homepage": "https://github.com/SparkPost/node-msys-pg",
+  "devDependencies": {
+    "@sparkpost/gruntfile": "^2.0.4",
+    "@sparkpost/msys-test-suite": "^2.0.0",
+    "chai": "^4.0.2",
+    "eslint-config-sparkpost": "^1.3.2",
+    "proxyquire": "^1.8.0",
+    "sinon": "1.17.4",
+    "sinon-as-promised": "^4.0.3",
+    "sinon-chai": "^2.10.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "pg": "^6.2.3"
+  }
+}
