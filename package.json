@@ -18,7 +18,6 @@
   "homepage": "https://github.com/SparkPost/node-msys-pg",
   "devDependencies": {
     "@sparkpost/gruntfile": "^2.0.4",
-    "@sparkpost/msys-test-suite": "^2.0.0",
     "chai": "^4.0.2",
     "eslint-config-sparkpost": "^1.3.2",
     "proxyquire": "^1.8.0",

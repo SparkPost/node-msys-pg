@@ -6,9 +6,14 @@ const expect = chai.expect;
 const _ = require('lodash');
 const sinon = require('sinon');
 const proxyquire = require('proxyquire').noCallThru();
-const testSuite = require('@sparkpost/msys-test-suite');
 
 chai.use(require('sinon-chai'));
+
+function promiseFail(thenable) {
+  return thenable.then(() => {
+    throw new Error('Test should have called \'catch\' but \'then\' was called instead.');
+  });
+}
 
 describe('PostgreSQL Wrapper', () => {
   let wrapper
@@ -83,7 +88,7 @@ describe('PostgreSQL Wrapper', () => {
     it('should reject if there is an error getting a connection', () => {
       poolMock.connect.rejects(error);
 
-      return testSuite.promiseFail(wrapper.query(sql, values))
+      return promiseFail(wrapper.query(sql, values))
         .catch((err) => {
           expect(err).to.equal(error);
 
@@ -96,7 +101,7 @@ describe('PostgreSQL Wrapper', () => {
     it('should reject if it there is an error querying', () => {
       connectionMock.query.rejects(error);
 
-      return testSuite.promiseFail(wrapper.query(sql, values))
+      return promiseFail(wrapper.query(sql, values))
         .catch((err) => {
           expect(err).to.equal(error);
 
@@ -120,7 +125,7 @@ describe('PostgreSQL Wrapper', () => {
 
     it('should throw error if connection creation fails', () => {
       poolMock.connect.rejects(new Error('uh ah!'));
-      return testSuite.promiseFail(wrapper.getConnection())
+      return promiseFail(wrapper.getConnection())
         .catch((err) => {
           expect(err.message).to.equal('uh ah!');
           expect(poolMock.connect).to.have.been.calledOnce;
@@ -172,7 +177,7 @@ describe('PostgreSQL Wrapper', () => {
       });
     });
 
-    it('should reject if called before setup', () => testSuite.promiseFail(wrapper.teardown())
+    it('should reject if called before setup', () => promiseFail(wrapper.teardown())
         .catch((err) => {
           expect(err.message).to.equal('pg-wrapper must be initialised before teardown');
         }));
