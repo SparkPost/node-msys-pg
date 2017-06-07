@@ -10,8 +10,8 @@
     "type": "git",
     "url": "git+https://github.com/SparkPost/node-msys-pg.git"
   },
-  "author": "",
-  "license": "CLOSED",
+  "author": "Message Systems, Inc.",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/SparkPost/node-msys-pg/issues"
   },
